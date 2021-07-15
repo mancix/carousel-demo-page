@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carousel demo page</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/carousel.css">
+    <script type="text/javascript" src="js/carousel.js"></script>
+</head>
+<body>
+<div id="my-carousel"></div>
+<div id="my-carousel2"></div>
+</body>
+<script type="text/javascript">
+    let options1 = {
+        container: "my-carousel",
+        title: "Nulla finibus posuere eros non tempor.",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        fetchCards: function(chunkSize) {
+            return new Promise(function(resolve, reject) {
+                window.setTimeout(function() {
+                    const shuffledArray = chunkSize.sort((a, b) => 0.5 - Math.random());
+                    let index = Math.floor(Math.random() * chunkSize.length);
+                    //the slice end should not be 0
+                    index = index === 0 ? 1 : index;
+                    resolve(shuffledArray.slice(0, index));
+                }, 3000);
+            });
+        }
+    }
+
+    let options2 = {
+        container: "my-carousel2",
+        title: "Sed facilisis vestibulum tortor nec convallis.",
+        subtitle: "Curabitur commodo tortor a dolor hendrerit, nec pretium nisl iaculis.",
+        fetchCards: function(chunkSize) {
+            return new Promise(function(resolve, reject) {
+                window.setTimeout(function() {
+                    const shuffledArray = chunkSize.sort((a, b) => 0.5 - Math.random());
+                    let index = Math.floor(Math.random() * chunkSize.length);
+                    //the slice end should not be 0
+                    index = index === 0 ? 1 : index;
+                    resolve(shuffledArray.slice(0, index));
+                }, 3000);
+            });
+        }
+    }
+
+    let carousel1 = new Carousel(options1);
+    let carousel2 = new Carousel(options2);
+</script>
+</html>

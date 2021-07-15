@@ -1,0 +1,14 @@
+{
+  "name": "carousel-demo-page",
+  "version": "1.0.0",
+  "description": "A reusable carousel component",
+  "scripts": {
+    "sass": "node-sass -o css sass/",
+    "sass-watch": "node-sass sass/carousel.scss css/carousel.css -w"
+  },
+  "author": "Lorenzo Mancini",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
